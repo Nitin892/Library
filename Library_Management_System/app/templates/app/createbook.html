@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+
+{% block createbook%}
+<div class="jumbotron">
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn" type="submit">create</button>
+        <button class="btn"><a href="{% url 'getbook' %}">Cancel</a></button>
+    </form>
+</div>
+{% endblock createbook %}

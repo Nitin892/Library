@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+
+{% block getbook %}
+<body>
+<h4>Welcome,{{user.username}}</h4>
+ {% if book %}
+ <div class="container text-white my-5 text-center bg-dark ">
+    <h3 >List Of Books</h3>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Book</th>
+      <th scope="col">Update Book</th>
+      <th scope="col">Delete Book</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for i in book %}
+    <tr>
+      <th scope="row"></th>
+      <td>{{i}}</td>
+      <td><a href="{% url 'updatebook' i.id %}">Update_{{i}}</a></td>
+      <td><a href="{% url 'delete' i.id %}">Delete_{{i}}</a></td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+{% else %}
+  <h4 class="text-warning text-center">Looks like You haven't created any Books!!</h4>
+{% endif %}
+
+<div class="jumbotron text-center" >
+    <h2 class="text-center">Post your Book</h2>
+    <a href="{% url 'createbook' %}">Create</a>
+</div>
+{% endblock getbook %}

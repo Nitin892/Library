@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+
+{% block update%}
+
+<div class="jumbotron">
+
+
+<form method="post">
+{{updatebook.as_p}}
+    {% csrf_token %}
+    <input type="submit" value="Ok">
+    <a href="{% url 'getbook' %}">Cancel</a>
+</form>
+
+{% endblock update %}
+
+</div>
